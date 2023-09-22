@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import css from "./PhoneBook.module.css"
 export class PhoneForm extends Component {
   state = {
     name: '',
@@ -11,7 +11,7 @@ export class PhoneForm extends Component {
   };
   render() {
     return (
-      <form
+      <form className={css.contactForm}
         onSubmit={event => {
           this.setState({ name: '', number: '' });
 
@@ -25,6 +25,7 @@ export class PhoneForm extends Component {
         <label>
           Name
           <input
+          className={css.input}
             type="text"
             name="name"
             value={this.state.name}
@@ -38,6 +39,7 @@ export class PhoneForm extends Component {
         <label>
           Number
           <input
+          className={css.input}
             type="tel"
             name="number"
             value={this.state.number}
@@ -48,7 +50,7 @@ export class PhoneForm extends Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={css.addBtn} type="submit">Add contact</button>
       </form>
     );
   }

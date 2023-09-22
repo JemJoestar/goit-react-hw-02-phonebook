@@ -1,5 +1,16 @@
-export const ContactList = ({contacts, handleDelete}) => {
-    return <ul>
-        {contacts.map(contact => <li key={contact.id}><span>{contact.name}</span>: <span>{contact.number}</span> <button type="button" onClick={() => handleDelete(contact.id)}>Delete</button></li>)}
+import css from "./PhoneBook.module.css"
+
+export const ContactList = ({ contacts, handleDelete }) => {
+  return (
+    <ul className={css.contactList}>
+      {contacts.map(contact => (
+        <li key={contact.id}>
+          {contact.name}: <span className={css.contactNumber}>{contact.number}</span>
+          <button className={css.deleteBtn} type="button" onClick={() => handleDelete(contact.id)}>
+            Delete
+          </button>
+        </li>
+      ))}
     </ul>
-}
+  );
+};
